@@ -4,6 +4,8 @@
  */
 package carhire_shop;
 
+import carhire_shop.view.LayoutView;
+
 /**
  *
  * @author USER
@@ -14,7 +16,7 @@ public class CarHire_Shop {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hello");
+       new LayoutView().setVisible(true);
     }
     
 }

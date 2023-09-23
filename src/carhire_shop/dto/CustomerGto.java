@@ -4,6 +4,7 @@
  */
 package carhire_shop.dto;
 
+import carhire_shop.entity.CustomerEntity;
 import java.lang.constant.Constable;
 
 /**
@@ -165,6 +166,10 @@ public class CustomerGto {
     @Override
     public String toString() {
         return "CustomerGto{" + "id=" + id + ", titile=" + titile + ", name=" + name + ", dob=" + dob + ", salary=" + salary + ", address=" + address + ", city=" + city + ", province=" + province + ", zip=" + zip + '}';
+    }
+
+    public boolean addCustomer(CustomerEntity ce) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     

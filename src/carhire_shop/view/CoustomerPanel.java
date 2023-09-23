@@ -4,20 +4,28 @@
  */
 package carhire_shop.view;
 
+import carhire_shop.controller.CustomerController;
+import carhire_shop.dto.CustomerGto;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author USER
  */
 public class CoustomerPanel extends javax.swing.JPanel {
 
-    static void setSize() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    private CustomerController customerController;
+//    static void setSize() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
 
     /**
      * Creates new form CoustomerPanel
      */
     public CoustomerPanel() {
+        customerController = new CustomerController();
         initComponents();
     }
 
@@ -353,7 +361,7 @@ public class CoustomerPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cityText1ActionPerformed
 
     private void saveButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButton1ActionPerformed
-        saveCustomer();
+        addCustomer();
     }//GEN-LAST:event_saveButton1ActionPerformed
 
     private void salaryText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryText1ActionPerformed
@@ -432,7 +440,37 @@ public class CoustomerPanel extends javax.swing.JPanel {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    private void saveCustomer() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void addCustomer() {
+        try {
+            CustomerGto customerGto = new CustomerGto(IdText.getText(),
+                    titleText.getText(),
+                    nameText.getText(),
+                    dobText.getText(),
+                    Double.parseDouble(salaryText.getText()),
+                    addressText.getText(),
+                    cityText.getText(),
+                    provinceText.getText(),
+                    codeText.getText());
+
+            String result = customerController.addCustomer(customerGto);
+            JOptionPane.showMessageDialog(formPanel, result);
+            clear();
+        } catch (Exception ex) {
+            Logger.getLogger(CoustomerPanel.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(formPanel, ex.getMessage());
+        }
+    }
+
+    private void clear() {
+        IdText.setText("");
+        titleText.setText("");
+        nameText.setText("");
+        dobText.setText("");
+        salaryText.setText("");
+        addressText.setText("");
+        cityText.setText("");
+        provinceText.setText("");
+        codeText.setText("");
+
     }
 }

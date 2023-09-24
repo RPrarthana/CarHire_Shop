@@ -4,13 +4,14 @@
  */
 package carhire_shop.dao.custom;
 
-import carhire_shop.dao.SuperDao;
+//import carhire_shop.dao.SuperDao;
+import carhire_shop.dao.CrudDao;
 import carhire_shop.entity.CustomerEntity;
 
 /**
  *
  * @author USER
  */
-public interface CustomerDao extends SuperDao{
-    Boolean addCustomer(CustomerEntity customerEntity) throws Exception;
+public interface CustomerDao extends CrudDao<CustomerEntity, String>{
+    
 }

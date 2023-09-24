@@ -15,7 +15,7 @@ import carhire_shop.service.custom.CustomerService;
  */
 public class CustomerServiceImpl implements CustomerService {
 
-    CustomerGto customerGto = (CustomerGto) DaoFactory.getInstance().getDao(DaoFactory.DaoTypes.CUSTOMER)
+    CustomerGto customerGto = (CustomerGto) DaoFactory.getInstance().getDao(DaoFactory.DaoTypes.CUSTOMER);
 
     public String addCustomer(CustomerGto dto) throws Exception {
 
@@ -24,7 +24,7 @@ public class CustomerServiceImpl implements CustomerService {
                 dto.getAddress(), dto.getCity(), dto.getProvince(),
                 dto.getZip());
 
-        if (customerGto.addCustomer(ce)) {
+        if (customerGto.add(ce)) {
             return "Successfully Added";
         } else {
             return "Fail";
